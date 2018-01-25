@@ -5,7 +5,21 @@ body{
 	font: 100% $font-stack;
 	color:$primary-color;
 }
-div.user-up-panel{
-	width:100%;
-
+div{
+	.user-up-panel{
+		width:100%;
+		height: 60px;
+		line-height: 1.5;
+		padding: 0 auto;
+	}
+	.user-image{
+		position: absolute;
+		width: 80px;
+		height: 80px;
+	}
+	.user-down-panel{
+		width: 100%;
+		height: 40px;
+		padding: 0 auto;
+	}
 }
