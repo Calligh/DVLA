@@ -1,0 +1,69 @@
+<IfModule mod_rewrite.c>
+	 <IfModule mod_negotiation.c>
+        Options +FollowSymLinks -MultiViews
+    </IfModule>
+
+    #Serving the 404 page
+    ErrorDocument 404 /DVLA/404.php
+
+    RewriteEngine on
+
+    RewriteCond %{REQUEST_URI} !^/DVLA
+    RewriteRule ^(.*)$ /DVLA/$1 [NC,L]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^index$ index.php [NC,L]
+    RewriteRule ^items$ menus.php [NC,L]
+    RewriteRule ^collections$ lessons.php [NC,L]
+    RewriteRule ^register$ register.php [NC,L]
+    RewriteRule ^about_us$ about_us.php [NC,L]
+    RewriteRule ^tutorials$ videos.php [NC,L]
+    RewriteRule ^faq$ faq.php [NC,L]
+    RewriteRule  ^signin$ signin.php [NC,L]
+  
+
+    #Configuration for the topics components
+    RewriteCond %{REQUEST_FILENAME} !-d [OR]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^collections/([\w]+) topics.php?s=$1 [NC,L]
+    RewriteRule ^featured/([\w]+)/([\w]+) read.php?s=$1&r=$2 [NC,L]
+
+    #Configuration for the admin
+    RewriteCond %{REQUEST_FILENAME} !-d [OR]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^admin/login$ admin/login.php [NC,L]
+    RewriteRule ^admin$ admin/index.php [NC,L]
+    RewriteRule ^admin/dashboard$ admin/dashboard.php [NC,L]
+
+    RewriteRule ^admin/categories$ admin/categories.php [NC,L]
+    RewriteRule ^admin/category/add$ admin/cat_form.php [NC,L]
+
+    RewriteRule ^admin/topics$ admin/topics.php [NC,L]
+    RewriteRule ^admin/topic/add$ admin/topic_form.php [NC,L]
+
+    RewriteRule ^admin/tertiaries$ admin/tertiaries.php [NC,L]
+    RewriteRule ^admin/contents$ admin/contents.php [NC,L]
+    RewriteRule ^admin/content/add$ admin/content_form.php [NC,L]
+    RewriteRule ^admin/reports$ admin/reports.php [NC,L]
+    RewriteRule ^admin/tests$ admin/tests.php [NC,L]
+
+    RewriteRule ^admin/collections/([\w]+) admin/topics.php?s=$1 [NC,L]
+    RewriteRule ^admin/users$ admin/registered_users.php [NC,L]
+
+    RewriteRule ^admin/logout$ admin/logout.php [NC,L]
+
+    #Configurations for the user of the system
+    RewriteCond %{REQUEST_FILENAME} !-d [OR]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^user/dashboard$ user/dashboard.php [NC,L]
+    RewriteRule ^user/tutorials$ user/videos.php [NC,L]
+    RewriteRule ^user/materials$ user/lessons.php [NC,L]
+    RewriteRule ^user/items$ user/menus.php [NC,L]
+
+    RewriteRule ^user/materials/([a-zA-Z0-9]+)$ user/topics.php?s=$1 [NC,L]
+    RewriteRule ^user/featured/([\w]+)/([\w]+)$ user/read.php?s=$1&r=$2 [NC,L]
+    RewriteRule ^user/logout$ user/logout.php [NC,L]
+    
+
+</IfModule>

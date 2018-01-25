@@ -1,0 +1,469 @@
+html{
+    scroll-behavior: smooth;
+    margin: 0 auto;
+    font-family: 'Raleway',sans-serif;
+}
+
+
+span.caption{
+    text-align: center;
+    color: #212121;
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    text-shadow: 1px 1px 1px #929292;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-overflow: ellipsis;
+    margin-left: 20px;
+    padding: 5px 0px 5px 0px;
+
+}
+
+#pd-0{
+    padding: 0px !important;
+    border-radius: 3px;
+}
+div.image-header{
+    width: 100%;
+    height: 15rem;
+    background-color: rgba(0,0,0,0.1);
+}
+div.image-header > img{
+    width: 100%;
+    height: 15rem;
+
+}
+.collapsible-body{
+    background-color: #FFFFFF;
+}
+a.brand-logo1{
+    width: 40px;
+    height: 40px;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+a.brand-logo1 > i{
+    margin-top: -9px;
+    margin-left: 7px;
+}
+/************************************************* Configuring the search bar ***************************************************/
+li#search_form > form{
+    position: absolute;
+    top: 8px;
+    left: 340px;
+    width: 55%;
+}
+input#search_data{
+    border:none;
+    box-sizing: border-box;
+    height: 48px;
+    color: #929292;
+    font-size: 1.2rem;
+    display: block;
+    border-radius:30px;
+    background: #0288d1;
+    padding-left: 45px;
+}
+input.gc{
+    pointer-events: auto;
+}
+input.sp{
+    z-index: 1;
+}
+input[type=text]#search_data:focus {
+    border-bottom:none;
+    box-shadow: 0 1px 0 0 #0288d1;
+}
+i.search_icon{
+    position: absolute;
+    top: -3px;
+    left: 12px;
+    color: #FFFFFF;
+
+}
+
+/* Configuring the topics details */
+i.vD123xLOd{
+    font-size: 26px;
+}
+a#view_details{
+    float: right;
+}
+a#view_details{
+    width: 40px;
+    height: 40px;
+    margin-top: -5px;
+}
+a#view_details > i{
+    margin-top: 5px;
+}
+ul.detail_dropdown{
+    width: 200px !important;
+}
+ul.detail_dropdown li a{
+    color: rgb(2, 136, 209);
+}
+
+/* Configurations for the empty containers */
+div.bg{
+    position: relative;
+    /*	margin:50px auto;*/
+    width:auto;
+    height: 400px;
+}
+img.help{
+    width: 100%;
+    height: 400px;
+}
+
+/* Tooltip alteration */
+
+.material-tooltip{
+    width:90px;
+}
+.material-tooltip > span {
+    font-size:13px;
+    padding:2px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+.backdrop{
+    background-color: #212121 !important;
+}
+/*Configuring the read function */
+ul li#miscel{
+    padding: 0px 10px 0px 4px;
+}
+ul li#miscel a{
+    width: 40px;
+    height: 40px;
+}
+ul li#miscel a:hover{
+    background-color: transparent;
+}
+
+ul li#miscel a > i{
+    margin-top: -7px;
+    margin-left: -7px;
+}
+
+/* Configuration for the registration and the payment fixtures */
+div.content_header12903{
+    width: 100%;
+    height: 1px;
+    border-top:1px solid #01579b;
+    opacity: 0.8;
+}
+
+a#register{
+    position: relative;
+    margin-top: -20px;
+    margin-left: -10px;
+    left: 68%;
+    /*border:1px solid #01579b;*/
+}
+a#payment{
+    position: relative;
+    margin-top: -20px;
+    margin-left: -120px;
+    left: 40%;
+    /*border:1px solid #01579b;*/
+}
+span#payment{
+    position: relative;
+    margin-left: -59px;
+    left: 40%;
+    top: 20px;
+}
+span#register{
+    position: relative;
+    margin-left: -55px;
+    left: 68%;
+    top: 20px;
+
+}
+div.content_body12903{
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-top: 50px;
+    z-index:1;
+}
+
+div#controllers{
+    width: 100%;
+    height: 40px;
+}
+
+div.mobile-money,div.bank-money{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    cursor: pointer;
+    border:0.5px solid #eeeeee;
+    border-radius: 5px;
+
+}
+div.mobile-money:hover,div.bank-money:hover{
+    border:0.5px solid #0277bd;
+}
+/**/
+
+/********************************************************Color shades for the input fields *******************************/
+
+/* color focus changing for the form */
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #0277bd;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #0277bd;
+    box-shadow: 0 1px 0 0 #0277bd;
+}
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #0277bd;
+    box-shadow: 0 1px 0 0 #0277bd;
+}
+/* colors for the type with password and email */
+.input-field input[type=email]:focus + label {
+    color:#0277bd;
+}
+/* label underline focus color */
+.input-field input[type=email]:focus {
+    border-bottom: 1px solid #0277bd;
+    box-shadow: 0 1px 0 0#0277bd;
+}
+/* valid color */
+.input-field input[type=email].valid {
+    border-bottom: 1px solid #00b0ff;
+    box-shadow: 0 1px 0 0 #00b0ff;
+}
+.input-field input[type=password]:focus + label {
+    color: #0277bd;
+}
+/* label underline focus color */
+.input-field input[type=password]:focus {
+    border-bottom: 1px solid #0277bd;
+    box-shadow: 0 1px 0 0 #0277bd;
+}
+/* valid color */
+.input-field input[type=password].valid {
+    border-bottom: 1px solid  #0277bd;
+    box-shadow: 0 1px 0 0  #0277bd;
+}
+.input-field input[type=number]:focus{
+    border-bottom: 1px solid #0277bd;
+    box-shadow: 0 1px 0 0 #0277bd;
+}
+.input-field input[type=number]:focus + label{
+    color: #0277bd;
+}
+
+textarea.materialize-textarea:focus:not([readonly]){
+    border-bottom: 1px solid #0277bd !important;
+    box-shadow: 0 1px 0 0 #0277bd !important;
+}
+/* Changing the color loaders */
+/* .spinner-yellow,
+ .spinner-yellow-only {
+   border-color: #FFFFFF;
+ }*/
+
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid  #0277bd;
+    box-shadow: 0 1px 0 0  #0277bd;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color:  #0277bd;
+}
+
+/*************************** Stylings for the color shades of the checkbox at the sign in page *******************************/
+.checkbox-indigo[type="checkbox"]:checked + label:before{
+    border: 2px solid transparent;
+    border-bottom: 2px solid #0277bd;
+    border-right: 2px solid #0277bd;
+    background: transparent;
+}
+.checkbox-indigo.filled-in[type="checkbox"] + label:after{
+    border: 2px solid #212121;
+    background: transparent;
+}
+.checkbox-indigo.filled-in[type="checkbox"]:checked + label:after{
+    background: #0277bd;
+    border: 2px solid #0277bd;
+}
+.checkbox-indigo.filled-in[type="checkbox"]:checked + label:before{
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+/********************** configuration for displaying of the payment selected ****************************/
+div.choose_option{
+    width: 100%;
+    height: 30px;
+}
+div#show_mobilePayment39082,div#show_bankPayment12908,div#selected-plan{
+    display: none;
+    opacity: 0;
+}
+
+/******** Css configurations for the hide and show of the payment plan and the selected plan ***************/
+.selected-plan-hide{
+    display: none;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+    -webkit-transition:1s all ease-in-out;
+}
+.payment-plan-show{
+    display: block;
+    opacity: 1;
+    transition:1s all ease-in-out;
+    -webkit-transition:1s all ease-in-out;
+}
+
+/****************** **********ADMIN SIDENAV CONFIGURATIONS ***************************************************/
+div.login{
+    background-color: #eeeeee;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    background-image: -webkit-linear-gradient(180deg,#ffffff 50%,#0277bd 50%);
+}
+div#pad-10{
+    padding-top: 15px;
+}
+div#name_check{
+    margin-left: -4px;
+}
+div#admin_sidenav{
+    position: fixed;
+    width: 6%;
+    height: 100%;
+    top: 50px;
+    left: 0;
+    z-index: 996.5;
+    bottom: 0;
+    overflow: hidden;
+    overflow-x: hidden;
+    margin-right: 0px;
+}
+ul.admin12983Ul_ss{
+    width: 100%;
+    position: absolute;
+    list-style: none none;
+    left: 0;
+    top: 0;
+    right: 0;
+    margin-right: 0;
+    list-style-position: inside;
+    overflow:hidden;
+
+}
+ul.admin12983Ul_ss li{
+    padding: 10px 10px 10px 20px;
+
+}
+ul.admin12983Ul_ss li a > i{
+    padding-top: 5px;
+}
+
+a#menu{
+    width: 92px;
+    height: 120px;
+    margin: 10px;
+    padding: 2px;
+    border-radius: 3px;
+    display: inline-block;
+    border:1px solid #FFFFF1;
+}
+a#menu:hover{
+    background-color: rgba(0,0,0,0.14);
+}
+a#menu > img{
+    width: 90px;
+    height: 90px;
+}
+span.title{
+    text-align: center;
+    margin-left: 5px;
+    text-shadow: .5px .5px 0.5px #01579b;
+}
+li#logout a:hover{
+    background-color: transparent;
+}
+
+/* configuration for the clearing of the input box admin panel */
+i.clear{
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    font-size: 18px;
+    pointer-events: auto;
+    cursor: pointer;
+    color: white;
+    padding: 2px;
+    background-color: rgba(0,0,0,0.54);
+    border-radius: 20px;
+}
+button#add_lesson{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    font-size: 17px;
+    width: 100%;
+}
+i.select_img{
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    font-size: 25px;
+    pointer-events: auto;
+    cursor: pointer;
+    padding: 5px;
+    transition:0.5s all ease-in-out;
+    -webkit-transition:0.5s all ease-in-out;
+
+}
+i.select_img:hover{
+    color: white;
+    background-color: rgba(0,0,0,0.54);
+    border-radius: 20px;
+    transition:0.5s all ease-in-out;
+    -webkit-transition:0.5s all ease-in-out;
+}
+div#modalAddImage{
+    width: 30%;
+}
+img.imagery{
+    width: 100px;
+    height: 100px;
+}
+span#category{
+    position: absolute;
+    margin-left: 300px;
+    margin-top: -4px;
+}
+span.school_image > img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+span#count{
+    position: absolute;
+    background-color: #01579b;
+    color: white;
+    font-weight: 500;
+    font-size: 12px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+/*	span.school_title{
+		margin-top: 5px;
+	}*/
