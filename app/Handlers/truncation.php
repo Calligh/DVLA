@@ -4,11 +4,17 @@
  */
  class WordTruncat
  {
+     public $_name = '';
+     public $_version;
+     public $_getupper;
  	
- 	// function __construct(argument)
- 	// {
- 	// 	# code...
- 	// }
+ 	 function __construct($exceptions=true)
+ 	 {
+ 	 	$this->Name = $this->_name;
+ 	 	$this->GetUpper = $this->_getupper;
+
+ 	 }
+
  	public static function truncatFunction(string $string_name = NULL,int $length = 0,string $limiter = "...")
 	{
 		$data = $string_name;
@@ -42,6 +48,22 @@
 		}
 
 	}
+
+	function toUpperCase(string $name){
+ 	     return ucfirst($name);
+    }
+
+	function getCharacter(string $username){
+ 	     $this->_name = $username;
+ 	     if(!empty($this->_name) && is_string($this->_name))
+         {
+             $this->_getupper = $this->toUpperCase($this->_name[0]);
+             return $this->_getupper;
+         }
+         else{
+ 	         return "Argument Not A String";
+         }
+    }
 	
  } 
  ?>
