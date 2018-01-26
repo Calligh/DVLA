@@ -1,25 +1,83 @@
-$font-stack: Helvetica, sans-serif;
+@charset "UTF-8";
+$font-stack: 'Raleway', sans-serif;
 $primary-color: #333;
+$secondary-color: #212121;
+$image-background:#e8e8e8;
+$tertiary-color:#929292;
+$accent-color:rgb(2,136,209);
 
 body{
 	font: 100% $font-stack;
 	color:$primary-color;
 }
+
+/* Creating a mixin for the register card */
+@mixin font-style($size,$weight,$color){
+	font-size: $size;
+	font-weight: $weight;
+	color: $color;
+}
+@mixin user-card($width,$line-height,$height,$flex){
+	width: $width;
+	height: $height;
+	line-height: $line-height;
+	flex: $flex;
+}
+
+@mixin border-radius($radius){
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+/* User Card padder */
 div{
-	.user-up-panel{
-		width:100%;
-		height: 60px;
-		line-height: 1.5;
-		padding: 0 auto;
+	&#user-card{
+		padding:0px !important;
 	}
-	.user-image{
+}
+.image-size{
+	width: 90px;
+	height: 90px;
+	@include border-radius(50%);
+}
+
+div{
+	&.user-up-panel{
+		@include user-card(100%,1.5,90px,auto);
+		padding: 0 !important;
+		background-color: #{$accent-color};
+	}
+	&.user-image{
 		position: absolute;
-		width: 80px;
-		height: 80px;
+		@extend .image-size;
+		background-color: #{$image-background};
+		top: 110px;
+		z-index: 10;
+		margin-left: 15px;
+		border:3px solid rgba(255,255,255,255);
+		img{
+			margin-top:-3px;
+			@extend .image-size;
+		}
+
 	}
-	.user-down-panel{
-		width: 100%;
-		height: 40px;
-		padding: 0 auto;
+	&.user-down-panel{
+		@include user-card(100%,1.5,70px,auto);
+		padding: 0 !important;
+	}
+}
+div{
+	&.user-fullname{
+		position:relative;
+		right:0;
+		top: 30px;
+		left: 120px;
+		@include font-style(24px,400,#FFFFFF);
+	}
+	span{
+		&.chip{
+			@include font-style(15px,bold,#FFFFF);
+		}
 	}
 }
