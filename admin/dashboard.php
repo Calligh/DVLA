@@ -5,6 +5,10 @@
 	$session_id = $_SESSION['data_id'];
 
 	$overallData = new Lessons();
+	$get_count_users  = $overallData::getUserCount($mysqli);
+	$total_users      = $get_count_users->fetch_array(MYSQLI_BOTH);
+	$get_totalUsers   = $total_users['TOTAL'];
+	
 	$get_count_school = $overallData::getSchoolCount($mysqli);
 	$total_number_schools = $get_count_school->fetch_array(MYSQLI_BOTH);
 	$get_number			  = $total_number_schools['TOTAL'];
@@ -29,6 +33,7 @@
 		<div class="col s9 m6 l6 card-panel">
 				<input type="text" class="search" id="search" placeholder="Search Modules ..." data-search="module_data" style="margin-top: 6px;margin-left: 1px; margin-right: 1px;" />
 				<a href="admin/users" id="menu" class="waves-effect waves-block waves-ripple">
+                    <span class="chip" id="count"><?php echo "$get_totalUsers"; ?></span>
 					<img src="public/images/boy.svg" class="responsive-img"/>
 					<span class="title">Users</span>
 				</a>
