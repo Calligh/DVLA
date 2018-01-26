@@ -192,6 +192,12 @@
 	 /**
 	 * Getting the total  of the db data for the dashboard
 	 */
+	 public static function getUserCount($mysqli){
+	     $query = "SELECT COUNT(*) AS TOTAL FROM registration";
+	     $results = $mysqli->query($query);
+	     return $results;
+     }
+
 	 public static function getSchoolCount($mysqli){
 	 	$query = "SELECT COUNT(*) AS TOTAL FROM tertiary_schools";
 	 	$results = $mysqli->query($query);
