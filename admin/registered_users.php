@@ -3,8 +3,8 @@ session_start();
 	include '../controllers/autoload.php';
 	include '../public/admin_navbar.php';
 	$session_id = $_SESSION['data_id'];
-ini_set( 'error_reporting', E_ALL);
-ini_set( 'display_errors', true );
+    ini_set( 'error_reporting', E_ALL);
+    ini_set( 'display_errors', true );
 	//Instantiating the word concatenation
 	$_resizeWords  = new WordTruncat();
 	$overallTopics = new Lessons();
@@ -52,7 +52,12 @@ ini_set( 'display_errors', true );
                                     <div class="user-image z-depth-1">
                                         <img src="<?php echo $value["Picture"] ?>" class="responsive-img">
                                     </div>
-                                    <div class="user-down-panel"></div>
+                                    <div class="user-down-panel">
+                                        <ul id="user-card-others">
+                                            <li><i class="material-icons left">account_balance</i><?php echo $_resizeWords::truncatFunction($value["School_Name"],27);?></li>
+                                            <li><i class="material-icons left">date_range</i><?php echo $value["DateOfBirth"];?></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                             <?php

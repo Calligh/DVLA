@@ -5,9 +5,11 @@ body {
 /* Creating a mixin for the register card */
 /* User Card padder */
 div#user-card {
-  padding: 0px !important; }
+  padding: 0px !important;
+  cursor: pointer;
+  pointer-events: auto; }
 
-.image-size, div.user-image, div.user-image img {
+.image-size, div.user-image {
   width: 90px;
   height: 90px;
   -webkit-border-radius: 50%;
@@ -16,7 +18,7 @@ div#user-card {
 
 div.user-up-panel {
   width: 100%;
-  height: 90px;
+  height: 80px;
   line-height: 1.5;
   flex: auto;
   padding: 0 !important;
@@ -27,12 +29,16 @@ div.user-image {
   top: 110px;
   z-index: 10;
   margin-left: 15px;
-  border: 3px solid white; }
+  border: 5px solid #0288d1; }
   div.user-image img {
-    margin-top: -3px; }
+    width: 80px;
+    height: 80px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%; }
 div.user-down-panel {
   width: 100%;
-  height: 70px;
+  height: 95px;
   line-height: 1.5;
   flex: auto;
   padding: 0 !important; }
@@ -49,5 +55,53 @@ div span.chip {
   font-size: 15px;
   font-weight: bold;
   color: #FFFFF; }
+
+ul#user-card-others {
+  top: 15px;
+  position: relative;
+  left: 95px; }
+  ul#user-card-others li {
+    list-style: none;
+    list-style-type: none;
+    float: left;
+    text-align: left;
+    margin-top: 9px; }
+
+div.bg1 {
+  position: relative;
+  width: auto;
+  height: 200px; }
+  div.bg1 img {
+    width: 140px;
+    height: 140px;
+    left: 34%;
+    top: 13%; }
+
+div.report-card h5 {
+  text-align: center;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis; }
+
+p {
+  margin: 0 auto; }
+  p a {
+    margin-top: 5px;
+    margin-bottom: 15px; }
+    p a.download {
+      vertical-align: center;
+      position: relative;
+      left: 26%;
+      background-color: #0288d1 !important;
+      font-size: 17px;
+      font-weight: bold;
+      color: white;
+      text-transform: capitalize; }
+
+div.modal-footer a.report {
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  margin-left: 20px; }
 
 /*# sourceMappingURL=app.css.map */

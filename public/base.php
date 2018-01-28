@@ -38,6 +38,5 @@
 <script type="text/javascript" src="public/vendors/lightGallery/demo/js/lg-share.js"></script>
 <script type="text/javascript" src="public/vendors/lightGallery/lib/jquery.mousewheel.min.js"></script>
 <script type="text/javascript" src="public/js/video.js"></script>
+<script type="text/javascript" src="public/js/moment.js"></script>
 <script type="text/javascript" src="public/js/vue.js"></script>
-<!-- <script type="text/javascript" src="public/vendors/jets/jets.min.js"></script> -->
-

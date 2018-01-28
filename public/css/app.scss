@@ -5,6 +5,8 @@ $secondary-color: #212121;
 $image-background:#e8e8e8;
 $tertiary-color:#929292;
 $accent-color:rgb(2,136,209);
+$button-color:#01579b !important;
+$default-color:rgba(255,255,255,255);
 
 body{
 	font: 100% $font-stack;
@@ -17,6 +19,7 @@ body{
 	font-weight: $weight;
 	color: $color;
 }
+
 @mixin user-card($width,$line-height,$height,$flex){
 	width: $width;
 	height: $height;
@@ -29,11 +32,18 @@ body{
 	-moz-border-radius: $radius;
 	border-radius: $radius;
 }
+@mixin image-radius($width,$height){
+	width: $width;
+	height: $height;
+	@include border-radius(50%);
+}
 
 /* User Card padder */
 div{
 	&#user-card{
 		padding:0px !important;
+		cursor: pointer;
+		pointer-events: auto;
 	}
 }
 .image-size{
@@ -44,7 +54,7 @@ div{
 
 div{
 	&.user-up-panel{
-		@include user-card(100%,1.5,90px,auto);
+		@include user-card(100%,1.5,80px,auto);
 		padding: 0 !important;
 		background-color: #{$accent-color};
 	}
@@ -55,15 +65,15 @@ div{
 		top: 110px;
 		z-index: 10;
 		margin-left: 15px;
-		border:3px solid rgba(255,255,255,255);
+		border:5px solid #{$accent-color};
+
 		img{
-			margin-top:-3px;
-			@extend .image-size;
+			@include image-radius(80px,80px);
 		}
 
 	}
 	&.user-down-panel{
-		@include user-card(100%,1.5,70px,auto);
+		@include user-card(100%,1.5,95px,auto);
 		padding: 0 !important;
 	}
 }
@@ -81,3 +91,67 @@ div{
 		}
 	}
 }
+ul{
+	&#user-card-others{
+		top: 15px;
+		position: relative;
+		left: 95px;
+
+		li{
+			list-style: none;
+			list-style-type: none;
+			float: left;
+			text-align:left;
+			margin-top: 9px;
+		}
+	}
+}
+div{
+	&.bg1{
+		position:relative;
+		width: auto;
+		height: 200px;
+		img{
+			width:140px;
+			height:140px;
+			left: 34%;
+			top: 13%;
+		}
+	}
+}
+div {
+	&.report-card {
+		h5 {
+			text-align: center;
+			-ms-text-overflow: ellipsis;
+			text-overflow: ellipsis;
+		}
+	}
+}
+p{
+	margin:0 auto;
+	a{
+		margin-top:5px;
+		margin-bottom: 15px;
+		&.download{
+			vertical-align: center;
+			position: relative;
+			left: 26%;
+			background-color:$accent-color !important;
+			@include font-style(17px,bold,$default-color);
+			text-transform: capitalize;
+		}
+	}
+}
+div{
+	&.modal-footer{
+		a{
+			&.report{
+				text-transform: capitalize;
+				@include font-style(14px,bold,$default-color);
+				margin-left: 20px;
+			}
+		}
+	}
+}
+

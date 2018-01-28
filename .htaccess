@@ -46,6 +46,9 @@
     RewriteRule ^admin/contents$ admin/contents.php [NC,L]
     RewriteRule ^admin/content/add$ admin/content_form.php [NC,L]
     RewriteRule ^admin/reports$ admin/reports.php [NC,L]
+
+    #Report Generation of registered users
+    RewriteRule ^admin/pdf/generate/([\d-]+) admin/pdf_report.php?report_date=$1 [NC,L]
     RewriteRule ^admin/tests$ admin/tests.php [NC,L]
 
     RewriteRule ^admin/collections/([\w]+) admin/topics.php?s=$1 [NC,L]

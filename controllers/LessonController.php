@@ -149,7 +149,7 @@
 	 }
 
 	 public function register($mysqli,$firstname,$lastname,$middlename,$dob,$gender,$country,$address,$phone,$mobile,$email,$password,$region,$city,$school_name,$level,$hostel,$student_id,$course,$image,$mm_SelectNetwork,$mm_Number,$mm_confNumber,$mm_Amt,$mm_RefNumber){
-	 	$query = "INSERT INTO registration(first_name,last_name,middle_name,DOB,gender,country,address,phone,mobile,email,password,region,city,name_school,level,hostel,student_schoolid,course,picture,mm_SelectNetwork,mm_Number,mm_confNumber,mm_Amt,mm_RefNumber) VALUES('$firstname','$lastname','$middlename','$dob','$gender','$country','$address','$phone','$mobile','$email','$password','$region','$city','$school_name','$level','$hostel','$student_id','$course','$image','$mm_SelectNetwork','$mm_Number','$mm_confNumber','$mm_Amt','$mm_RefNumber')";
+	 	$query = "INSERT INTO registration(first_name,last_name,middle_name,DOB,gender,country,address,phone,mobile,email,password,region,city,name_school,level,hostel,student_schoolid,course,picture,mm_SelectNetwork,mm_Number,mm_confNumber,mm_Amt,mm_RefNumber,created_at,updated_at) VALUES('$firstname','$lastname','$middlename','$dob','$gender','$country','$address','$phone','$mobile','$email','$password','$region','$city','$school_name','$level','$hostel','$student_id','$course','$image','$mm_SelectNetwork','$mm_Number','$mm_confNumber','$mm_Amt','$mm_RefNumber',NOW(),NOW())";
 	 	$results = $mysqli->query($query);
 	 	if ($results) {
 	 		?>
@@ -177,12 +177,21 @@
 	 		<?php
 	 	}
 	 }
-
+	 /* Get users based on date for pdf generation */
+	 public function getUserByDate($mysqli,$_date){
+	     $query = "SELECT * FROM registration WHERE created_at = '$_date'";
+	     $results = $mysqli->query($query);
+	     return $results;
+     }
 	 /**
 	 *   User configurations  for the system
 	 *
 	 **/
-
+	 public static function getUsers($mysqli){
+	     $query = "SELECT first_name,last_name,middle_name FROM registration";
+	     $results = $mysqli->query($query);
+	     return $results;
+     }
 	 public static function getUserDetails($mysqli,$session_id){
 	 	$query = "SELECT * FROM registration WHERE email = '$session_id'";
 	 	$results = $mysqli->query($query);

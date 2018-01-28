@@ -89,5 +89,19 @@ $(document).ready(function(){
 			mode:'lg-lollipop'
 		});
 
-		
+		$("#modal1,#modal2").modal();
+		$("a.report").attr("disabled",true).css({"background-color":"#e8e8e8 !important"});
+		$("input.date").change(function(event){
+			var data = event.target.value;
+			if($.trim(data).length > 0){
+				var querySelector = $("a.report");
+				querySelector.attr("disabled",false)
+				             .css({"background-color":"#0288d1 !important"});
+;				querySelector.attr("href","admin/pdf/generate/"+data);
+			}
+			else if($.trim(data).length <= 0){
+                $("a.report").attr("disabled",true).css({"background-color":"#e8e8e8 !important"});
+			}
+		});
+
 	});
