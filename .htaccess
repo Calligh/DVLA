@@ -48,10 +48,11 @@
     RewriteRule ^admin/reports$ admin/reports.php [NC,L]
 
     #Report Generation of registered users
-    RewriteRule ^admin/pdf/generate/([\d-]+) admin/pdf_report.php?report_date=$1 [NC,L]
+    RewriteRule ^admin/pdf/generate/([\d-]+)$ admin/pdf_report.php?report_date=$1 [NC,L]
     RewriteRule ^admin/tests$ admin/tests.php [NC,L]
+    RewriteRule ^admin/edit$ admin/edit_profile.php [NC,L]
 
-    RewriteRule ^admin/collections/([\w]+) admin/topics.php?s=$1 [NC,L]
+    RewriteRule ^admin/collections/([\w]+)$ admin/topics.php?s=$1 [NC,L]
     RewriteRule ^admin/users$ admin/registered_users.php [NC,L]
 
     RewriteRule ^admin/logout$ admin/logout.php [NC,L]
