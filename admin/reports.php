@@ -28,6 +28,10 @@ session_start();
                 "MiddleName" => $row_user_data["middle_name"],
             );
             array_push($user_array,$data);
+            $json_data = json_encode($data,JSON_PRETTY_PRINT);
+            $filename = fopen("dir/data.json","w");
+            fwrite($filename,$json_data);
+            fclose($filename);
         }
     }
 
@@ -84,7 +88,7 @@ session_start();
 <div class="modal" id="modal1" style="width: 40%;">
     <div class="modal-content">
         <div class="col s12 m12 l12">
-            <div class="input-field col s12 m6 l6">
+            <div class="input-field col s12 m6 l6 stud-report">
                 <i class="material-icons prefix">perm_identity</i>
                 <input type="text" name="autocomplete" class="autocomplete" id="autocomplete" />
                 <label for="autocomplete">Search Through <?php echo "$get_totalUsers";?> Student(s)</label>
@@ -92,14 +96,15 @@ session_start();
         </div>
     </div>
     <div class="modal-footer">
-
+        <a href="#" class="btn report">Generate Report</a>
+        <a id="list-close" class="btn-flat modal-action modal-close waves-ripple waves-effect" style="text-transform: capitalize;">Close</a>
     </div>
 </div>
 
-<div class="modal" id="modal2" style="width:40%;">
+<div class="modal" id="modal2" style="width:40%">
     <div class="modal-content">
         <div class="col s12 m12 l12">
-            <div class="input-field col s12 m6 l6">
+            <div class="input-field col s12 m6 l6 stud-list">
                 <i class="material-icons prefix">perm_identity</i>
                 <input type="text" name="date" class="date" id="date" />
                 <label for="date">Select Filter (Date Of Registry)</label>
@@ -109,9 +114,10 @@ session_start();
     </div>
     <div class="modal-footer">
         <a  href="admin/reports" target="_blank" class="btn report">Generate Report</a>
-        <a  class="btn-flat modal-action modal-close waves-effect waves-ripple">Close</a>
+        <a  id="list-close" class="btn-flat modal-action modal-close waves-effect waves-ripple" style="text-transform: capitalize;">Close</a>
     </div>
 </div>
+
 
 
 
