@@ -11,7 +11,8 @@
 		$login_init = new Lessons();
 		$login_credentials = $login_init::adminLogger($mysqli,$username);
 		$get_cred_results  = $login_credentials->fetch_array(MYSQLI_BOTH);
-		
+
+		$unique_code       = $get_cred_results['id'];
 		$verify_id 		   = $get_cred_results['username'];
 		$pass_code 		   = $get_cred_results['password'];
 		if ($verify_id == '' && $pass_code == '') {
@@ -26,7 +27,7 @@
 		if ($verify_id == $username && $pass_code == md5($password)) {
 			# code...
 			session_regenerate_id(true);
-			$_SESSION['data_id'] = $verify_id;
+			$_SESSION['data_id'] = $unique_code;
 			session_commit();
 			header("Location:dashboard");
 		}else{
