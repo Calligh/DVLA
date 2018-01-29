@@ -154,13 +154,14 @@
 	 	if ($results) {
 	 		?>
 	 		<script type="text/javascript">
+                setTimeout(function(){
+                    var $toast = $('<span>Working Now ....</span>');
+                    Materialize.toast($toast,2000);
+                },2000)
 	 			setTimeout(function() {
 	 				var $toast = $('<span>Registration Successful</span>');
 	 				Materialize.toast($toast,2000);
-	 			}, 1000);
-	 			// setTimeout(function() {
-	 			// 	window.location = "admin/contents";
-	 			// }, 3000);
+	 			}, 3800);
 	 		</script>
 	 		<?php
 	 	}else{
@@ -170,13 +171,45 @@
 	 				var $toast = $('<span>An Error Occurred</span>');
 	 				Materialize.toast($toast,2000);
 	 			}, 1000);
-	 			// setTimeout(function() {
-	 			// 	window.location = "admin/contents";
-	 			// }, 3000);
 	 		</script>
 	 		<?php
 	 	}
 	 }
+
+	 /* ADMIN  */
+	 public function GetProfileAdmin($mysqli,$unique_id){
+	     $query = "SELECT * FROM admin WHERE id = '$unique_id'";
+	     $results = $mysqli->query($query);
+	     return $results;
+     }
+
+	 public function EditProfileAdmin($mysqli,$username,$firstname,$lastname,$picture,$unique_id){
+	     $query = "UPDATE admin SET username = '',firstname = '', lastname = '',picture = '' WHERE id = '$unique_id'";
+	     $results = $mysqli->query($query);
+	     if ($results){
+	         ?>
+             <script type="text/javascript">
+                 setTimeout(function(){
+                     var $toast = $('<span>Working Now ...</span>');
+                     Materialize.toast($toast,2000);
+                 },2000);
+                 setTimeout(function() {
+                     var $toast = $('<span>Update Successful</span>');
+                     Materialize.toast($toast,2000);
+                 }, 3800);
+             </script>
+            <?php
+         }else{
+	         ?>
+             <script>
+                 setTimeout(function() {
+                     var $toast = $('<span>An Error Occurred .. Contact Web Master</span>');
+                     Materialize.toast($toast,2000);
+                 }, 1000);
+             </script>
+            <?php
+         }
+     }
 	 /* Get users based on date for pdf generation */
 	 public function getUserByDate($mysqli,$_date){
 	     $query = "SELECT * FROM registration WHERE created_at = '$_date'";
