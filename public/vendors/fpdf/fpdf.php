@@ -982,10 +982,11 @@ function SetXY($x, $y)
 
 function Output($name='', $dest='')
 {
+	ob_start();
 	// Output PDF to some destination
 	if($this->state<3)
 		$this->Close();
-	$dest = strtoupper($dest);
+//	$dest = strtoupper($dest);
 	if($dest=='')
 	{
 		if($name=='')
