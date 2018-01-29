@@ -70,13 +70,6 @@
 		</li>
 
 		<li style="margin-right: -6px;">
-			<a href="admin/password">
-				<i class="material-icons left icon">vpn_lock</i>
-				<span class="menu_name">Change Password</span>
-			</a>
-		</li>
-
-		<li style="margin-right: -6px;">
 			<a href="admin/logout">
 				<i class="material-icons left icon">power_settings_new</i>
 				<span class="menu_name">Logout</span>
