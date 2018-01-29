@@ -64,6 +64,7 @@
 				</a>
 
 				<a href="admin/reports" id="menu" class="waves-effect waves-block waves-ripple">
+                    <span class="chip" id="count"><?php echo "Available"; ?></span>
 					<img src="public/images/pdf.svg" class="responsive-img"/>
 					<span class="title text-center">Reports</span>
 				</a>
