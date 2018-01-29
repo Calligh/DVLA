@@ -74,12 +74,13 @@ $(document).ready(function(){
 	    	 }
 	    });
 			//Configuring the search bar
-		$("input#search_data").focusin(function(){
-			 $("input#search_data").css({"background":"#FFFFFF","transition":"all 0.5s ease-in-out"});
+		var searchSelector = $("input#search_data");
+		searchSelector.focusin(function(){
+			 $(this).css({"background":"#FFFFFF","transition":"all 0.5s ease-in-out"});
 			 $("i.search_icon").css({"transition":"all 0.5s ease-in-out","color":"#212121"});
 		});
-		$("input#search_data").focusout(function(){
-			 $("input#search_data").css({"background":"#0288d1","transition":"all 0.5s ease-in-out"});
+		searchSelector.focusout(function(){
+			 $(this).css({"background":"#0288d1","transition":"all 0.5s ease-in-out"});
 			 $("i.search_icon").css({"transition":"all 0.5s ease-in-out","color":"#FFFFFF"});
 		});
 
@@ -89,19 +90,26 @@ $(document).ready(function(){
 			mode:'lg-lollipop'
 		});
 
-		$("#modal1,#modal2").modal();
+		$("#modal1,#modal2").modal({
+			dismissible:false
+		});
+
 		$("a.report").attr("disabled",true).css({"background-color":"#e8e8e8 !important"});
-		$("input.date").change(function(event){
+		var $dateSelector = $("input.date");
+		$dateSelector.change(function(event){
 			var data = event.target.value;
 			if($.trim(data).length > 0){
 				var querySelector = $("a.report");
 				querySelector.attr("disabled",false)
-				             .css({"background-color":"#0288d1 !important"});
+				             .addClass("light-blue darken-2");
 ;				querySelector.attr("href","admin/pdf/generate/"+data);
 			}
 			else if($.trim(data).length <= 0){
                 $("a.report").attr("disabled",true).css({"background-color":"#e8e8e8 !important"});
 			}
 		});
+
+		//Tabs configuration
+		$(".tabs").tabs();
 
 	});
