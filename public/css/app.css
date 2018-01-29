@@ -97,11 +97,52 @@ p {
       color: white;
       text-transform: capitalize; }
 
+/* Modal Position and others effects */
+.modal.open {
+  top: 32% !important; }
+
 div.modal-footer a.report {
   text-transform: capitalize;
   font-size: 14px;
   font-weight: bold;
   color: white;
   margin-left: 20px; }
+
+div.stud-list input {
+  font-size: 14px;
+  font-weight: bold;
+  color: #212121; }
+div.stud-list label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #212121; }
+
+div.stud-report input {
+  font-size: 14px;
+  font-weight: bold;
+  color: #212121; }
+div.stud-report label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #212121; }
+
+a#list-close {
+  margin-left: -35px; }
+
+/* Tabs configs */
+ul.tabs {
+  margin-top: 30px; }
+
+i.tab-icon {
+  position: absolute;
+  margin-left: -40px;
+  margin-top: 11px; }
+
+.block {
+  width: 100%;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: bold;
+  color: white; }
 
 /*# sourceMappingURL=app.css.map */
