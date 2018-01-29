@@ -143,6 +143,14 @@ p{
 		}
 	}
 }
+
+/* Modal Position and others effects */
+.modal{
+	&.open{
+		top: 32% !important;
+	}
+}
+
 div{
 	&.modal-footer{
 		a{
@@ -155,3 +163,47 @@ div{
 	}
 }
 
+div{
+	&.stud-list{
+		input{
+			@include font-style(14px,bold,$secondary-color);
+		}
+		label{
+			@include font-style(14px,bold,$secondary-color);
+		}
+	}
+}
+div{
+	&.stud-report{
+		input{
+			@include font-style(14px,bold,$secondary-color);
+		}
+		label{
+			@include font-style(14px,bold,$secondary-color);
+		}
+	}
+}
+a{
+	&#list-close{
+		margin-left: -35px;
+	}
+}
+
+/* Tabs configs */
+ul{
+	&.tabs{
+		margin-top: 30px;
+	}
+}
+i{
+	&.tab-icon{
+		position: absolute;
+		margin-left: -40px;
+		margin-top: 11px;
+	}
+}
+.block{
+	width:100%;
+	text-transform: capitalize;
+	@include font-style(14px,bold,$default-color);
+}
