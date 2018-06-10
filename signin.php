@@ -1,6 +1,6 @@
- <?php
-	session_start();
-	include 'public/base.php';
+<?php
+ ini_set( 'error_reporting', E_ALL);
+ini_set( 'display_errors', true );
 	include 'public/navbar.php';
 	include 'controllers/autoload.php';
 	if (isset($_POST['submit'])) {
@@ -25,10 +25,12 @@
 
 		if ($verify_id == $email && $pass_code == md5($password)) {
 			# code...
-			session_regenerate_id(true);
+			session_start();
 			$_SESSION['data_id'] = $verify_id;
 			session_commit();
-			header("Location:user/items");
+			if (isset($_SESSION['data_id'])) {
+				header("Location:user/items");
+			}
 		}else{
 			?>
 			<script>

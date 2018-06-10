@@ -1,8 +1,8 @@
 <?php
-	session_start();
-	include '../public/base.php';
+	ini_set( 'error_reporting', E_ALL);
+    ini_set( 'display_errors', true );
+
 	include '../controllers/autoload.php';
-	unset($_SESSION['data_id']);
 	if (isset($_POST['submit'])) {
 		# code...
 		$username = trim($_POST['username']);
@@ -26,7 +26,7 @@
 
 		if ($verify_id == $username && $pass_code == md5($password)) {
 			# code...
-			session_regenerate_id(true);
+			session_start();
 			$_SESSION['data_id'] = $unique_code;
 			session_commit();
 			header("Location:dashboard");

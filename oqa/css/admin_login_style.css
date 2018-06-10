@@ -1,0 +1,89 @@
+body { background-color:#000099;
+}
+
+#login-box {
+	width:333px;               /*width:333px;*/
+	height: 600px;               /*height: 352px;*/
+	padding: 40px 76px 46px 76px;   /*padding: 58px 76px 0 76px;*/
+	color: #ebebeb;
+	font: 12px Arial, Helvetica, sans-serif;
+	background-image: url(../images/login-box-backg.png);
+	background-repeat:no-repeat;
+}
+
+/*#login-box img {
+	border:none;
+}*/
+
+#login-box h2 /* LOGIN FORM(text) */
+{
+	padding:0;
+	margin:0;
+	color: #ebebeb;
+	font: bold 40px "Calibri", Arial;
+}
+
+
+#login-box-name 
+{
+	float: left;
+	display:inline;
+	width:60px;  /*80 px*/
+	text-align: right;
+	padding: 10px 6px 0 0;             /*14px 10px 0 0;*/
+	margin:0px 0px 0px 0px;                  /*0 0 7px 0*/
+}
+
+#login-box-field 
+{
+	float: left;
+	display:inline;
+	width:230px;
+	/*margin:0;
+	margin:0 0 0 0;*/
+}
+
+
+.form-login  {
+	width: 200px;            /*width: 205px;*/
+	padding: 10px 4px 6px 3px;
+	border: 1px solid #0d2c52;
+	background-color:#1e4f8a;
+	font-size: 16px;
+	color: #ebebeb;
+}
+
+.form-my  {
+	width: 100px;
+	height:30px;
+	padding: 0px 4px 6px 3px;
+	border: 1px solid #0d2c52;
+	background-color:#1e4f8a;
+	font-size: 16px;
+	color: #ebebeb;
+}
+
+.input[type="checkbox"]{    margin-right: 10px;!important}
+
+.container{ 
+    padding: 0 0 0 61px;
+    display: block;
+    margin: 10px 0% 10px 29%;
+    width: 100%;
+    float: left;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

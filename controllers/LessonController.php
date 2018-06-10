@@ -1,11 +1,17 @@
-<?php 
+<?php
  /**
- * 
+ *
  */
  class Lessons
  {
- 	public static function getTopics($mysqli){
- 		$query = "SELECT * FROM lessons";
+ 	public static function getMenus($mysqli){
+ 		$query = "SELECT * FROM menu";
+ 		$results = $mysqli->query($query);
+ 		return $results;
+ 	}
+
+ 	public static function getTopics($mysqli,$menu_id){
+ 		$query = "SELECT * FROM lessons WHERE menu_id = '$menu_id'";
  		$results = $mysqli->query($query);
  		return $results;
  	}
@@ -16,8 +22,8 @@
  		return $results;
  	}
 
- 	public function getLessonTopics($mysqli,$get_id){
- 		$query = "SELECT * FROM lesson_topics WHERE lesson_topics.lessons = '$get_id'";
+ 	public function getLessonTopics($mysqli,$get_id,$get_menu_id){
+ 		$query = "SELECT * FROM lesson_topics WHERE lesson_topics.lessons = '$get_id' AND lesson_topics.menu_id = '$get_menu_id'";
  		$results = $mysqli->query($query);
  		return $results;
  	}
@@ -36,8 +42,8 @@
  		return $results;
  	}
 
- 	public function getLessonNotes($mysqli,$get_topic_id,$get_lesson_id){
- 		$query = "SELECT * FROM lesson_details WHERE lesson_details.lesson_topics = '$get_lesson_id' AND lesson_details.lessons = $get_topic_id";
+ 	public function getLessonNotes($mysqli,$get_topic_id,$get_lesson_id,$get_menu_id){
+ 		$query = "SELECT * FROM lesson_details WHERE lesson_details.lesson_topics = '$get_lesson_id' AND lesson_details.lessons = $get_topic_id AND lesson_details.menu_id = '$get_menu_id'";
  		$results = $mysqli->query($query);
  		return $results;
  	}
@@ -53,9 +59,9 @@
  		$results = $mysqli->query($query);
  		return $results;
  	}
- 	
- 	public function adminAddLesson($mysqli,$title,$image){
- 		$query = "INSERT INTO lessons(title,image) VALUES('$title','$image')";
+
+ 	public function adminAddLesson($mysqli,$title,$image,$menuLesson_id){
+ 		$query = "INSERT INTO lessons(title,image,menu_id) VALUES('$title','$image','$menuLesson_id')";
  		$results = $mysqli->query($query);
  		if ($results) {
  			?>
@@ -70,6 +76,18 @@
  		}
  	}
 
+ 	public function adminAllCategories($mysqli){
+ 		$query = "SELECT * FROM lessons";
+ 		$results = $mysqli->query($query);
+ 		return $results;
+ 	}
+
+ 	public function getMenuNameFromID($mysqli,$menu_id){
+ 		$query = "SELECT name FROM menu WHERE id = '$menu_id'";
+ 		$results = $mysqli->query($query);
+ 		return $results;
+ 	}
+
  	public function registeredUsers($mysqli){
  		$query = "SELECT * FROM registration";
  		$results = $mysqli->query($query);
@@ -82,11 +100,11 @@
  		return $results;
  	}
 
- 	/**
+ 	/*
 	 Adding the topic to a category
  	*/
-	 public function addTopicToCat($mysqli,$lessons,$topics){
-	 	$query = "INSERT INTO lesson_topics(topics,lessons) VALUES('$topics','$lessons')";
+	 public function addTopicToCat($mysqli,$lessons,$topics,$menuTopic_id){
+	 	$query = "INSERT INTO lesson_topics(topics,lessons,menu_id) VALUES('$topics','$lessons','$menuTopic_id')";
 	 	$results = $mysqli->query($query);
 	 	if ($results) {
 	 		?>
@@ -230,7 +248,7 @@
 	 	$results = $mysqli->query($query);
 	 	return $results;
 	 }
-	 
+
 	 /**
 	 * Getting the total  of the db data for the dashboard
 	 */
@@ -264,7 +282,13 @@
 	 	return $results;
 	 }
 
-	 
+	 public static function getMenuCount($mysqli){
+	 	$query = "SELECT COUNT(*) AS TOTAL FROM menu";
+	 	$results = $mysqli->query($query);
+	 	return $results;
+	 }
+
+
 
  }
  ?>

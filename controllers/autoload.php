@@ -15,6 +15,7 @@
 		require_once $__connection;
 		require_once $__lessons;
 		require_once $__videos;
+		//This is the base class for the entire project
 		require_once $base;
 
 			//Initializing the connection

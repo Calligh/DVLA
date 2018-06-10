@@ -1,7 +1,10 @@
 <?php 
-	session_start();
+	ini_set( 'error_reporting', E_ALL);
+    ini_set( 'display_errors', true );
+    include '../controllers/SessAdminController.php';
 	include '../controllers/autoload.php';
 	include '../public/admin_navbar.php';
+
 	$session_id = $_SESSION['data_id'];
 
 	$overallData = new Lessons();
@@ -24,6 +27,10 @@
 	$get_content	    = $overallData::getContentCount($mysqli);
 	$total_content      = $get_content->fetch_array(MYSQLI_BOTH);
 	$get_number3 		= $total_content['TOTAL'];
+
+	$get_count_menu     = $overallData::getMenuCount($mysqli);
+	$total_menu         = $get_count_menu->fetch_array(MYSQLI_BOTH);
+	$get_number4        = $total_menu['TOTAL'];
  ?>
  <div class="admin_home">
  	<div class="row">
@@ -36,6 +43,11 @@
                     <span class="chip" id="count"><?php echo "$get_totalUsers"; ?></span>
 					<img src="public/images/boy.svg" class="responsive-img"/>
 					<span class="title">Users</span>
+				</a>
+				<a href="admin/menus" id="menu" class="waves-effect waves-block waves-ripple">
+					<span class="chip" id="count"><?php echo "$get_number4"; ?></span>
+					<img src="public/images/speedometer.svg" class="responsive-img"/>
+					<span class="title">Menus</span>
 				</a>
 				<a href="admin/categories" id="menu" class="waves-effect waves-block waves-ripple">
 					<span class="chip" id="count"><?php echo "$get_number1"; ?></span>
@@ -52,7 +64,7 @@
 					<img src="public/images/open-book.svg" class="responsive-img"/>
 					<span class="title text-center">Notes</span>
 				</a>
-				<a href="admin/tests" id="menu" class="waves-effect waves-block waves-ripple">
+				<a href="oqa/admin_login.php" target="_blank" id="menu" class="waves-effect waves-block waves-ripple">
 					<img src="public/images/desk.svg" class="responsive-img"/>
 					<span class="title text-center">Test Exer...</span>
 				</a>

@@ -1,8 +1,8 @@
 <?php
-session_start();
+include '../controllers/SessAdminController.php';
 	include '../controllers/autoload.php';
 	include '../public/admin_navbar.php';
-	$session_id = $_SESSION['data_id']; 
+	$session_id = $_SESSION['data_id'];
 
 	//Instantiating the word concatenation
 	$_resizeWords  = new WordTruncat();
@@ -44,17 +44,15 @@ session_start();
 				<h5 class="center-align grey-text text-darken-3">Contents For Topics Is Empty</h5>
 				<h5 class="center-align grey-text text-darken-3 small-text">Add Content To Topics</h5>
 				 	<?php
-				 } 
+				 }
 			 ?>
 			</ul>
 
 		</div>
 		<div id="addLessBtn" class="fixed-action-btn animated" style="right: 70px;bottom: 35px;">
 	    <a  href="admin/content/add" id="addLesson" class="btn-floating btn-large light-blue accent-3 waves-effect waves-ripple">
-	      <i class="large material-icons tooltipped" data-tooltip="Add Lesson" data-position="left" data-delay="5">add</i>
+	      <i class="large material-icons tooltipped" data-tooltip="Add Notes" data-position="left" data-delay="5">add</i>
 	    </a>
 	</div>
 
  </div>
-
-

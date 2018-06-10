@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '../controllers/SessAdminController.php';
 	include '../controllers/autoload.php';
 	include '../public/admin_navbar.php';
 	$session_id = $_SESSION['data_id'];

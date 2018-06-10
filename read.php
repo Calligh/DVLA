@@ -8,6 +8,7 @@ ini_set( 'display_errors', true );
 //Getting the value or the id 
 $get_topic_id = $_GET['s'];
 $get_lesson_id = $_GET['r'];
+$get_menu_id   = $_GET['t'];
 
 require_once 'controllers/autoload.php';
 include 'public/content_navbar.php';
@@ -17,7 +18,7 @@ include 'public/content_navbar.php';
  		<div class="container animated fadeIn">
  		<?php 
  		$details = new Lessons();
- 		$query_data = $details->getLessonNotes($mysqli,$get_topic_id,$get_lesson_id);
+ 		$query_data = $details->getLessonNotes($mysqli,$get_topic_id,$get_lesson_id,$get_menu_id);
  		$query_count = $query_data->num_rows;
  		if ($query_count > 0) {
  			while ($results = $query_data->fetch_array(MYSQLI_BOTH)) 

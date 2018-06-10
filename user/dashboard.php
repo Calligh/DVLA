@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '../controllers/SessionController.php';
 $session_id = $_SESSION['data_id'];
 include '../controllers/autoload.php';
 $user_details = new Lessons();

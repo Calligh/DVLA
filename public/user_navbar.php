@@ -17,7 +17,7 @@
 				<a href="user/tutorials"><i class="material-icons left">cast</i>Videos</a>
 			</li>
 			<li>
-				<a href="user/tests"><i class="material-icons left">book</i>Tests</a>
+				<a href="oqa/user_index.php"><i class="material-icons left">book</i>Tests</a>
 			</li>
 
 			<li>

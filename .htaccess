@@ -21,13 +21,16 @@
     RewriteRule ^tutorials$ videos.php [NC,L]
     RewriteRule ^faq$ faq.php [NC,L]
     RewriteRule  ^signin$ signin.php [NC,L]
-  
+
+    #Configurations for the lessons rewrite -- pretty hectic
+    RewriteRule ^collections/([\w]+)$ lessons.php?cats=$1 [NC,L]
+
 
     #Configuration for the topics components
     RewriteCond %{REQUEST_FILENAME} !-d [OR]
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^collections/([\w]+) topics.php?s=$1 [NC,L]
-    RewriteRule ^featured/([\w]+)/([\w]+) read.php?s=$1&r=$2 [NC,L]
+    RewriteRule ^collections/([\w]+)/([\w]+) topics.php?s=$1&r=$2 [NC,L]
+    RewriteRule ^featured/([\w]+)/([\w]+)/([\w]+) read.php?s=$1&r=$2&t=$3 [NC,L]
 
     #Configuration for the admin
     RewriteCond %{REQUEST_FILENAME} !-d [OR]
@@ -41,6 +44,8 @@
 
     RewriteRule ^admin/topics$ admin/topics.php [NC,L]
     RewriteRule ^admin/topic/add$ admin/topic_form.php [NC,L]
+		RewriteRule ^admin/topic/processor$ admin/process/topic_select_processor.php [NC,L]
+		RewriteRule ^admin/lesson/processor$ admin/process/lesson_select_processor.php [NC,L]
 
     RewriteRule ^admin/tertiaries$ admin/tertiaries.php [NC,L]
     RewriteRule ^admin/contents$ admin/contents.php [NC,L]
@@ -65,9 +70,13 @@
     RewriteRule ^user/materials$ user/lessons.php [NC,L]
     RewriteRule ^user/items$ user/menus.php [NC,L]
 
-    RewriteRule ^user/materials/([a-zA-Z0-9]+)$ user/topics.php?s=$1 [NC,L]
-    RewriteRule ^user/featured/([\w]+)/([\w]+)$ user/read.php?s=$1&r=$2 [NC,L]
+    RewriteRule ^user/materials/([\w]+)$ user/lessons.php?cats=$1 [QSA,NC,L]
+    RewriteRule ^user/materials/([\w]+)/([\w]+)$ user/topics.php?s=$1&r=$2 [QSA,NC,L]
+    RewriteRule ^user/featured/([\w]+)/([\w]+)/([\w]+)$ user/lessons.php?s=$1&r=$2&t=$3 [QSA,NC,L]
     RewriteRule ^user/logout$ user/logout.php [NC,L]
+
     
+ 
+
 
 </IfModule>

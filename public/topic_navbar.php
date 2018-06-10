@@ -1,6 +1,6 @@
 <div class="navbar-fixed">
 	<nav class="nav-wrapper light-blue darken-4">
-		<a href="collections" class="brand-logo brand-logo1 waves-effect waves-light waves-circle"><i class="material-icons left">arrow_back</i></a>
+		<a href="collections/<?php echo "$get_menu_id";?>" class="brand-logo brand-logo1 waves-effect waves-light waves-circle"><i class="material-icons left">arrow_back</i></a>
 		<!-- <div class="col s12" id="indicators" style="position: relative;left: 60px;">
 			<a href="#" class="breadcrumb">Misc</a>
 			<a href="#" class="breadcrumb">Lord</a>

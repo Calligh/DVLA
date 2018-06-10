@@ -1,5 +1,5 @@
 <?php
-session_start();
+	include '../controllers/SessAdminController.php';
 	include '../controllers/autoload.php';
 	include '../public/admin_navbar.php';
 	$session_id = $_SESSION['data_id']; 
@@ -15,7 +15,7 @@ session_start();
  		</div>
 		<div class="col s9 m10 l10" id="lesson_container">
 			<?php 
-			$query_data    = $overallTopics::getTopics($mysqli);
+			$query_data    = $overallTopics::adminAllCategories($mysqli);
 			$query_count   = $query_data->num_rows;
 			if ($query_count > 0) {
 				# code...
@@ -24,10 +24,18 @@ session_start();
 					$id    = $row['id'];
 					$title = $_resizeWords::truncatFunction($row['title'],19,"...");
 					$image = $row['image'];
+					$menu_id = $row['menu_id'];
+
+					$menu_data = $overallTopics->getMenuNameFromID($mysqli,$menu_id);
+					while($row_menu = $menu_data->fetch_array(MYSQLI_BOTH)){
+						$menu_title = $row_menu['name'];
 		 		 ?>
 	 		<div class="col s12 m3 l3 animated fadeIn">
 	 			<a href="admin/collections/<?php echo "$id"; ?>">
 	 				<div class="card-panel col s12 m12 l12 waves-effect waves-ripple waves-block z-depth-2" id="pd-0">
+	 					<h1 class="ribbon z-depth-1">
+						   <strong class="ribbon-content"><?php echo "$menu_title";?></strong>
+						</h1>
 		 				<div class="image-header">
 		 					<img src="<?php echo "$image"; ?>" class="responsive-img"/>
 		 				</div>
@@ -38,6 +46,7 @@ session_start();
 	 			</a>
 	 		</div>
 	 			<?php 
+	 				}
 	 			}
 	 		}else
 	 		{
